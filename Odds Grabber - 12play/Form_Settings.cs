@@ -20,7 +20,7 @@ namespace Odds_Grabber___12play
 
         private string ___Replace(string name)
         {
-            name = name.Replace("<setting name=\"______", "").Replace("_", " ").Replace("is", "").Replace("\" serializeAs=\"String\">", "").Replace("<value>", "").Replace("</value>", "");
+            name = name.Replace("<setting name=\"______", "").Replace("_", " ").Replace("is", "").Replace("\" serializeAs=\"String\">", "").Replace("<value>", "").Replace("</value>", "").Replace("amp;", "");
             name = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(name.ToLower().Trim());
 
             return name;
@@ -28,7 +28,7 @@ namespace Odds_Grabber___12play
 
         private string ___Replace_RealName_Link(string name)
         {
-            name = name.Replace("<setting name=\"", "").Replace("\" serializeAs=\"String\">", "").Replace("<value>", "").Replace("</value>", "").Trim();
+            name = name.Replace("<setting name=\"", "").Replace("\" serializeAs=\"String\">", "").Replace("<value>", "").Replace("</value>", "").Replace("amp;", "").Trim();
 
             return name;
         }
@@ -144,11 +144,6 @@ namespace Odds_Grabber___12play
                         }
 
                     }
-
-                    //dataGridView_settings.Rows.Insert(0, "Username", "Username", "nasrii042318");
-                    //dataGridView_settings.Rows.Insert(0, "Password", "Password", "AAaa1111");
-                    //dataGridView_settings.Rows.Insert(6, "Password", "S-SPORTS Running", "https://hv.link333.com/odds/GetOtherSportOdds?=");
-                    //dataGridView_settings.Rows.Insert(7, "Password", "Password", "AAaa1111");
 
                     file.Close();
                 }

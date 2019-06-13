@@ -157,13 +157,13 @@ namespace Odds_Grabber___12play
             InitializeComponent();
 
             // Settings
-            __root_url = Properties.Settings.Default.______root_url.ToString();
-            __root_url_equals = Properties.Settings.Default.______root_url_equals.ToString();
-            __root_url_login = Properties.Settings.Default.______root_url_login.ToString();
-            __IGK_running = Properties.Settings.Default.______IGK_running.ToString();
-            __IGK_not_running = Properties.Settings.Default.______IGK_not_running.ToString();
-            __CMD_running = Properties.Settings.Default.______CMD_running.ToString();
-            __CMD_not_running = Properties.Settings.Default.______CMD_not_running.ToString();
+            __root_url = Properties.Settings.Default.______root_url.ToString().Replace("amp;", "");
+            __root_url_equals = Properties.Settings.Default.______root_url_equals.ToString().Replace("amp;", "");
+            __root_url_login = Properties.Settings.Default.______root_url_login.ToString().Replace("amp;", "");
+            __IGK_running = Properties.Settings.Default.______IGK_running.ToString().Replace("amp;", "");
+            __IGK_not_running = Properties.Settings.Default.______IGK_not_running.ToString().Replace("amp;", "");
+            __CMD_running = Properties.Settings.Default.______CMD_running.ToString().Replace("amp;", "");
+            __CMD_not_running = Properties.Settings.Default.______CMD_not_running.ToString().Replace("amp;", "");
 
             //MessageBox.Show(Properties.Settings.Default.______is_send_telegram.ToString() + "\n" + __root_url + "\n" + __root_url_equals + "\n" + __root_url_login + "\n" + __IGK_running + "\n" + __IGK_not_running + "\n" + __CMD_running + "\n" + __CMD_not_running + "\n" + __username + "\n" + __password);
             // End of Settings
@@ -703,7 +703,7 @@ namespace Odds_Grabber___12play
                     };
                 }));
             }
-            
+
             if (__detect_cmd)
             {
                 if (!e.Address.ToString().Contains("https://www.12play1.com/sg/launchinggame.html?ap=1&sub=0::sports::M::0"))
@@ -731,7 +731,7 @@ namespace Odds_Grabber___12play
 
                             SendABCTeam(__running_22 + " Back to Normal.");
                         }
-                        
+
                         Task task_02 = new Task(delegate { ___SECOND_RUNNINGAsync(); });
                         task_02.Start();
 
@@ -799,7 +799,7 @@ namespace Odds_Grabber___12play
                 {
                     string _last_ref_id = "";
                     int _row_no = 1;
-                    
+
                     // League
                     for (int i = 0; i < _count_competition.Count(); i++)
                     {
