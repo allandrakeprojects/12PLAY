@@ -36,6 +36,17 @@ namespace Odds_Grabber___12play
         private string __running_22 = "CMD";
         private string __app_detect_running = "12PLAY";
         private string __local_ip = "";
+        // Settings
+        private string __root_url = "";
+        private string __root_url_equals = "";
+        private string __root_url_login = "";
+        private string __IGK_running = "";
+        private string __IGK_not_running = "";
+        private string __CMD_running = "";
+        private string __CMD_not_running = "";
+        private string __username = "";
+        private string __password = "";
+        // End of Settings
         private int __send = 0;
         private int __r = 23;
         private int __g = 23;
@@ -144,6 +155,18 @@ namespace Odds_Grabber___12play
         public Main_Form()
         {
             InitializeComponent();
+
+            // Settings
+            __root_url = Properties.Settings.Default.______root_url.ToString();
+            __root_url_equals = Properties.Settings.Default.______root_url_equals.ToString();
+            __root_url_login = Properties.Settings.Default.______root_url_login.ToString();
+            __IGK_running = Properties.Settings.Default.______IGK_running.ToString();
+            __IGK_not_running = Properties.Settings.Default.______IGK_not_running.ToString();
+            __CMD_running = Properties.Settings.Default.______CMD_running.ToString();
+            __CMD_not_running = Properties.Settings.Default.______CMD_not_running.ToString();
+
+            //MessageBox.Show(Properties.Settings.Default.______is_send_telegram.ToString() + "\n" + __root_url + "\n" + __root_url_equals + "\n" + __root_url_login + "\n" + __IGK_running + "\n" + __IGK_not_running + "\n" + __CMD_running + "\n" + __CMD_not_running + "\n" + __username + "\n" + __password);
+            // End of Settings
 
             timer_landing.Start();
         }
@@ -610,7 +633,7 @@ namespace Odds_Grabber___12play
 
             settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
             Cef.Initialize(settings);
-            chromeBrowser = new ChromiumWebBrowser("http://www.12play1.com/");
+            chromeBrowser = new ChromiumWebBrowser(__root_url);
             panel_cefsharp.Controls.Add(chromeBrowser);
             chromeBrowser.AddressChanged += ChromiumBrowserAddressChanged;
         }
@@ -629,7 +652,7 @@ namespace Odds_Grabber___12play
             }));
 
 
-            if (e.Address.ToString().Equals("https://www.12play1.com/"))
+            if (e.Address.ToString().Equals(__root_url_equals))
             {
                 __is_login = false;
                 Invoke(new Action(() =>
@@ -643,7 +666,7 @@ namespace Odds_Grabber___12play
                                 __first++;
                                 if (__first == 1)
                                 {
-                                    chromeBrowser.Load("https://www.12play1.com/sg/launchinggame.html?ap=1&sub=0::sports::G::0");
+                                    chromeBrowser.Load(__root_url_login);
                                 }
                             }));
                         }
@@ -759,7 +782,7 @@ namespace Odds_Grabber___12play
                 wc.Encoding = Encoding.UTF8;
                 wc.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                 int _epoch = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
-                byte[] result = await wc.DownloadDataTaskAsync("http://sport.power5555.com/_View/RMOdds1Gen.ashx?ot=r&sort=0&at=EU&r=" + 1452756003 + "&LID=&_=" + _epoch);
+                byte[] result = await wc.DownloadDataTaskAsync(__IGK_running + _epoch);
                 string responsebody = Encoding.UTF8.GetString(result);
                 var deserializeObject = JsonConvert.DeserializeObject(responsebody);
 
@@ -1189,7 +1212,7 @@ namespace Odds_Grabber___12play
                 wc.Encoding = Encoding.UTF8;
                 wc.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                 int _epoch = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
-                byte[] result = await wc.DownloadDataTaskAsync("http://sport.power5555.com/_View/RMOdds1Gen.ashx?ot=t&wd=&ia=0&sort=0&at=EU&r=688232980&LID=&_=" + _epoch);
+                byte[] result = await wc.DownloadDataTaskAsync(__IGK_not_running + _epoch);
                 string responsebody = Encoding.UTF8.GetString(result);
                 var deserializeObject = JsonConvert.DeserializeObject(responsebody);
 
@@ -1620,7 +1643,7 @@ namespace Odds_Grabber___12play
                     {"m_sp", "0"}
                 };
 
-                byte[] result = await wc.UploadValuesTaskAsync("https://p12.fts368.com/Member/BetsView/BetLight/DataOdds.ashx", "POST", reqparm);
+                byte[] result = await wc.UploadValuesTaskAsync(__CMD_running, "POST", reqparm);
                 string responsebody = Encoding.UTF8.GetString(result);
                 var deserializeObject = JsonConvert.DeserializeObject(responsebody);
                 JObject _jo = JObject.Parse(deserializeObject.ToString());
@@ -1953,7 +1976,7 @@ namespace Odds_Grabber___12play
                     {"m_sp", "0"}
                 };
 
-                byte[] result = await wc.UploadValuesTaskAsync("https://p12.fts368.com/Member/BetsView/BetLight/DataOdds.ashx", "POST", reqparm);
+                byte[] result = await wc.UploadValuesTaskAsync(__CMD_not_running, "POST", reqparm);
                 string responsebody = Encoding.UTF8.GetString(result);
                 var deserializeObject = JsonConvert.DeserializeObject(responsebody);
                 JObject _jo = JObject.Parse(deserializeObject.ToString());
@@ -2308,6 +2331,13 @@ namespace Odds_Grabber___12play
                     return "0";
                 }
             }
+        }
+
+        // added settings
+        private void panel2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Form_Settings form_settings = new Form_Settings();
+            form_settings.ShowDialog();
         }
     }
 }

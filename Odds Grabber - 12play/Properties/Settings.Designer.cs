@@ -117,5 +117,91 @@ namespace Odds_Grabber___12play.Properties {
                 this["______is_send_telegram"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.12play1.com/")]
+        public string ______root_url {
+            get {
+                return ((string)(this["______root_url"]));
+            }
+            set {
+                this["______root_url"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.12play1.com/")]
+        public string ______root_url_equals {
+            get {
+                return ((string)(this["______root_url_equals"]));
+            }
+            set {
+                this["______root_url_equals"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.12play1.com/sg/launchinggame.html?ap=1&sub=0::sports::G::0")]
+        public string ______root_url_login {
+            get {
+                return ((string)(this["______root_url_login"]));
+            }
+            set {
+                this["______root_url_login"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://sport.power5555.com/_View/RMOdds1Gen.ashx?ot=r&sort=0&at=EU&r=1452756003&L" +
+            "ID=&_=")]
+        public string ______IGK_running {
+            get {
+                return ((string)(this["______IGK_running"]));
+            }
+            set {
+                this["______IGK_running"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://sport.power5555.com/_View/RMOdds1Gen.ashx?ot=t&wd=&ia=0&sort=0&at=EU&r=688" +
+            "232980&LID=&_=")]
+        public string ______IGK_not_running {
+            get {
+                return ((string)(this["______IGK_not_running"]));
+            }
+            set {
+                this["______IGK_not_running"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p12.fts368.com/Member/BetsView/BetLight/DataOdds.ashx")]
+        public string ______CMD_running {
+            get {
+                return ((string)(this["______CMD_running"]));
+            }
+            set {
+                this["______CMD_running"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p12.fts368.com/Member/BetsView/BetLight/DataOdds.ashx")]
+        public string ______CMD_not_running {
+            get {
+                return ((string)(this["______CMD_not_running"]));
+            }
+            set {
+                this["______CMD_not_running"] = value;
+            }
+        }
     }
 }
